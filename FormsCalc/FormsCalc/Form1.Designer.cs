@@ -65,6 +65,7 @@
             SevenButton.TabIndex = 0;
             SevenButton.Text = "7";
             SevenButton.UseVisualStyleBackColor = false;
+            SevenButton.Click += NumberButton_Click;
             // 
             // EightButton
             // 
@@ -79,6 +80,7 @@
             EightButton.TabIndex = 1;
             EightButton.Text = "8";
             EightButton.UseVisualStyleBackColor = false;
+            EightButton.Click += NumberButton_Click;
             // 
             // NineButton
             // 
@@ -93,6 +95,7 @@
             NineButton.TabIndex = 2;
             NineButton.Text = "9";
             NineButton.UseVisualStyleBackColor = false;
+            NineButton.Click += NumberButton_Click;
             // 
             // DivideButton
             // 
@@ -121,6 +124,7 @@
             FourButton.TabIndex = 4;
             FourButton.Text = "4";
             FourButton.UseVisualStyleBackColor = false;
+            FourButton.Click += NumberButton_Click;
             // 
             // FiveButton
             // 
@@ -135,6 +139,7 @@
             FiveButton.TabIndex = 5;
             FiveButton.Text = "5";
             FiveButton.UseVisualStyleBackColor = false;
+            FiveButton.Click += NumberButton_Click;
             // 
             // SixButton
             // 
@@ -149,6 +154,7 @@
             SixButton.TabIndex = 6;
             SixButton.Text = "6";
             SixButton.UseVisualStyleBackColor = false;
+            SixButton.Click += NumberButton_Click;
             // 
             // MultiplyButton
             // 
@@ -205,6 +211,7 @@
             OneButton.TabIndex = 10;
             OneButton.Text = "1";
             OneButton.UseVisualStyleBackColor = false;
+            OneButton.Click += NumberButton_Click;
             // 
             // TwoButton
             // 
@@ -219,6 +226,7 @@
             TwoButton.TabIndex = 11;
             TwoButton.Text = "2";
             TwoButton.UseVisualStyleBackColor = false;
+            TwoButton.Click += NumberButton_Click;
             // 
             // ThreeButton
             // 
@@ -233,6 +241,7 @@
             ThreeButton.TabIndex = 12;
             ThreeButton.Text = "3";
             ThreeButton.UseVisualStyleBackColor = false;
+            ThreeButton.Click += NumberButton_Click;
             // 
             // MinusButton
             // 
@@ -275,6 +284,7 @@
             ZeroButton.TabIndex = 15;
             ZeroButton.Text = "0";
             ZeroButton.UseVisualStyleBackColor = false;
+            ZeroButton.Click += NumberButton_Click;
             // 
             // PointButton
             // 
@@ -289,6 +299,7 @@
             PointButton.TabIndex = 16;
             PointButton.Text = ".";
             PointButton.UseVisualStyleBackColor = false;
+            PointButton.Click += NumberButton_Click;
             // 
             // ClearButton
             // 
@@ -303,6 +314,7 @@
             ClearButton.TabIndex = 17;
             ClearButton.Text = "C";
             ClearButton.UseVisualStyleBackColor = false;
+            ClearButton.Click += ClearButton_Click;
             // 
             // PlusButton
             // 
@@ -317,6 +329,7 @@
             PlusButton.TabIndex = 18;
             PlusButton.Text = "+";
             PlusButton.UseVisualStyleBackColor = false;
+            PlusButton.Click += ExpressionButton_Click;
             // 
             // EqualsButton
             // 
@@ -331,6 +344,7 @@
             EqualsButton.TabIndex = 19;
             EqualsButton.Text = "=";
             EqualsButton.UseVisualStyleBackColor = false;
+            EqualsButton.Click += EqualsButton_Click;
             // 
             // ExpressionTextBox
             // 
