@@ -36,13 +36,10 @@
             FiveButton = new Button();
             SixButton = new Button();
             MultiplyButton = new Button();
-            NegateButton = new Button();
-            RootButton = new Button();
             OneButton = new Button();
             TwoButton = new Button();
             ThreeButton = new Button();
             MinusButton = new Button();
-            PercentButton = new Button();
             ZeroButton = new Button();
             PointButton = new Button();
             ClearButton = new Button();
@@ -169,34 +166,7 @@
             MultiplyButton.TabIndex = 7;
             MultiplyButton.Text = "×";
             MultiplyButton.UseVisualStyleBackColor = false;
-            // 
-            // NegateButton
-            // 
-            NegateButton.BackColor = SystemColors.GradientActiveCaption;
-            NegateButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
-            NegateButton.FlatStyle = FlatStyle.Flat;
-            NegateButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            NegateButton.ForeColor = Color.FromArgb(64, 64, 64);
-            NegateButton.Location = new Point(277, 71);
-            NegateButton.Name = "NegateButton";
-            NegateButton.Size = new Size(59, 60);
-            NegateButton.TabIndex = 8;
-            NegateButton.Text = "±";
-            NegateButton.UseVisualStyleBackColor = false;
-            // 
-            // RootButton
-            // 
-            RootButton.BackColor = SystemColors.GradientActiveCaption;
-            RootButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
-            RootButton.FlatStyle = FlatStyle.Flat;
-            RootButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            RootButton.ForeColor = Color.FromArgb(64, 64, 64);
-            RootButton.Location = new Point(277, 132);
-            RootButton.Name = "RootButton";
-            RootButton.Size = new Size(59, 60);
-            RootButton.TabIndex = 9;
-            RootButton.Text = "√";
-            RootButton.UseVisualStyleBackColor = false;
+            MultiplyButton.Click += ExpressionButton_Click;
             // 
             // OneButton
             // 
@@ -256,20 +226,7 @@
             MinusButton.TabIndex = 13;
             MinusButton.Text = "-";
             MinusButton.UseVisualStyleBackColor = false;
-            // 
-            // PercentButton
-            // 
-            PercentButton.BackColor = SystemColors.ActiveCaption;
-            PercentButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
-            PercentButton.FlatStyle = FlatStyle.Flat;
-            PercentButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            PercentButton.ForeColor = Color.FromArgb(64, 64, 64);
-            PercentButton.Location = new Point(277, 193);
-            PercentButton.Name = "PercentButton";
-            PercentButton.Size = new Size(59, 60);
-            PercentButton.TabIndex = 14;
-            PercentButton.Text = "%";
-            PercentButton.UseVisualStyleBackColor = false;
+            MinusButton.Click += ExpressionButton_Click;
             // 
             // ZeroButton
             // 
@@ -338,7 +295,7 @@
             EqualsButton.FlatStyle = FlatStyle.Flat;
             EqualsButton.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             EqualsButton.ForeColor = Color.White;
-            EqualsButton.Location = new Point(277, 254);
+            EqualsButton.Location = new Point(277, 161);
             EqualsButton.Name = "EqualsButton";
             EqualsButton.Size = new Size(59, 60);
             EqualsButton.TabIndex = 19;
@@ -353,6 +310,7 @@
             ExpressionTextBox.Name = "ExpressionTextBox";
             ExpressionTextBox.Size = new Size(303, 27);
             ExpressionTextBox.TabIndex = 20;
+            ExpressionTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // LastExpressionLabel
             // 
@@ -377,13 +335,10 @@
             Controls.Add(ClearButton);
             Controls.Add(PointButton);
             Controls.Add(ZeroButton);
-            Controls.Add(PercentButton);
             Controls.Add(MinusButton);
             Controls.Add(ThreeButton);
             Controls.Add(TwoButton);
             Controls.Add(OneButton);
-            Controls.Add(RootButton);
-            Controls.Add(NegateButton);
             Controls.Add(MultiplyButton);
             Controls.Add(SixButton);
             Controls.Add(FiveButton);
@@ -408,13 +363,10 @@
         private Button FiveButton;
         private Button SixButton;
         private Button MultiplyButton;
-        private Button NegateButton;
-        private Button RootButton;
         private Button OneButton;
         private Button TwoButton;
         private Button ThreeButton;
         private Button MinusButton;
-        private Button PercentButton;
         private Button ZeroButton;
         private Button PointButton;
         private Button ClearButton;
