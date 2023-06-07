@@ -5,6 +5,7 @@ namespace FormsCalc
         public Form1()
         {
             InitializeComponent();
+            this.LastExpressionLabel.Hide();
         }
     }
 }

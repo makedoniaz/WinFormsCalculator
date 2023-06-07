@@ -28,282 +28,385 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
-            button13 = new Button();
-            button14 = new Button();
-            button15 = new Button();
-            button16 = new Button();
-            button17 = new Button();
-            button18 = new Button();
-            button19 = new Button();
-            button20 = new Button();
-            textBox1 = new TextBox();
-            label1 = new Label();
+            SevenButton = new Button();
+            EightButton = new Button();
+            NineButton = new Button();
+            DivideButton = new Button();
+            FourButton = new Button();
+            FiveButton = new Button();
+            SixButton = new Button();
+            MultiplyButton = new Button();
+            NegateButton = new Button();
+            RootButton = new Button();
+            OneButton = new Button();
+            TwoButton = new Button();
+            ThreeButton = new Button();
+            MinusButton = new Button();
+            PercentButton = new Button();
+            ZeroButton = new Button();
+            PointButton = new Button();
+            ClearButton = new Button();
+            PlusButton = new Button();
+            EqualsButton = new Button();
+            ExpressionTextBox = new TextBox();
+            LastExpressionLabel = new Label();
             SuspendLayout();
             // 
-            // button1
+            // SevenButton
             // 
-            button1.Location = new Point(33, 71);
-            button1.Name = "button1";
-            button1.Size = new Size(59, 60);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            SevenButton.BackColor = SystemColors.Control;
+            SevenButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            SevenButton.FlatStyle = FlatStyle.Flat;
+            SevenButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            SevenButton.ForeColor = Color.FromArgb(64, 64, 64);
+            SevenButton.Location = new Point(33, 71);
+            SevenButton.Name = "SevenButton";
+            SevenButton.Size = new Size(59, 60);
+            SevenButton.TabIndex = 0;
+            SevenButton.Text = "7";
+            SevenButton.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // EightButton
             // 
-            button2.Location = new Point(94, 71);
-            button2.Name = "button2";
-            button2.Size = new Size(59, 60);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            EightButton.BackColor = SystemColors.Control;
+            EightButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            EightButton.FlatStyle = FlatStyle.Flat;
+            EightButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            EightButton.ForeColor = Color.FromArgb(64, 64, 64);
+            EightButton.Location = new Point(94, 71);
+            EightButton.Name = "EightButton";
+            EightButton.Size = new Size(59, 60);
+            EightButton.TabIndex = 1;
+            EightButton.Text = "8";
+            EightButton.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // NineButton
             // 
-            button3.Location = new Point(155, 71);
-            button3.Name = "button3";
-            button3.Size = new Size(59, 60);
-            button3.TabIndex = 2;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            NineButton.BackColor = SystemColors.Control;
+            NineButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            NineButton.FlatStyle = FlatStyle.Flat;
+            NineButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            NineButton.ForeColor = Color.FromArgb(64, 64, 64);
+            NineButton.Location = new Point(155, 71);
+            NineButton.Name = "NineButton";
+            NineButton.Size = new Size(59, 60);
+            NineButton.TabIndex = 2;
+            NineButton.Text = "9";
+            NineButton.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // DivideButton
             // 
-            button4.Location = new Point(216, 71);
-            button4.Name = "button4";
-            button4.Size = new Size(59, 60);
-            button4.TabIndex = 3;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            DivideButton.BackColor = SystemColors.ActiveCaption;
+            DivideButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            DivideButton.FlatStyle = FlatStyle.Flat;
+            DivideButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            DivideButton.ForeColor = Color.FromArgb(64, 64, 64);
+            DivideButton.Location = new Point(216, 71);
+            DivideButton.Name = "DivideButton";
+            DivideButton.Size = new Size(59, 60);
+            DivideButton.TabIndex = 3;
+            DivideButton.Text = "÷";
+            DivideButton.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // FourButton
             // 
-            button5.Location = new Point(33, 132);
-            button5.Name = "button5";
-            button5.Size = new Size(59, 60);
-            button5.TabIndex = 4;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
+            FourButton.BackColor = SystemColors.Control;
+            FourButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            FourButton.FlatStyle = FlatStyle.Flat;
+            FourButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            FourButton.ForeColor = Color.FromArgb(64, 64, 64);
+            FourButton.Location = new Point(33, 132);
+            FourButton.Name = "FourButton";
+            FourButton.Size = new Size(59, 60);
+            FourButton.TabIndex = 4;
+            FourButton.Text = "4";
+            FourButton.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // FiveButton
             // 
-            button6.Location = new Point(94, 132);
-            button6.Name = "button6";
-            button6.Size = new Size(59, 60);
-            button6.TabIndex = 5;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
+            FiveButton.BackColor = SystemColors.Control;
+            FiveButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            FiveButton.FlatStyle = FlatStyle.Flat;
+            FiveButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            FiveButton.ForeColor = Color.FromArgb(64, 64, 64);
+            FiveButton.Location = new Point(94, 132);
+            FiveButton.Name = "FiveButton";
+            FiveButton.Size = new Size(59, 60);
+            FiveButton.TabIndex = 5;
+            FiveButton.Text = "5";
+            FiveButton.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // SixButton
             // 
-            button7.Location = new Point(155, 132);
-            button7.Name = "button7";
-            button7.Size = new Size(59, 60);
-            button7.TabIndex = 6;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
+            SixButton.BackColor = SystemColors.Control;
+            SixButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            SixButton.FlatStyle = FlatStyle.Flat;
+            SixButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            SixButton.ForeColor = Color.FromArgb(64, 64, 64);
+            SixButton.Location = new Point(155, 132);
+            SixButton.Name = "SixButton";
+            SixButton.Size = new Size(59, 60);
+            SixButton.TabIndex = 6;
+            SixButton.Text = "6";
+            SixButton.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // MultiplyButton
             // 
-            button8.Location = new Point(216, 132);
-            button8.Name = "button8";
-            button8.Size = new Size(59, 60);
-            button8.TabIndex = 7;
-            button8.Text = "button8";
-            button8.UseVisualStyleBackColor = true;
+            MultiplyButton.BackColor = SystemColors.ActiveCaption;
+            MultiplyButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            MultiplyButton.FlatStyle = FlatStyle.Flat;
+            MultiplyButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            MultiplyButton.ForeColor = Color.FromArgb(64, 64, 64);
+            MultiplyButton.Location = new Point(216, 132);
+            MultiplyButton.Name = "MultiplyButton";
+            MultiplyButton.Size = new Size(59, 60);
+            MultiplyButton.TabIndex = 7;
+            MultiplyButton.Text = "×";
+            MultiplyButton.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // NegateButton
             // 
-            button9.Location = new Point(277, 71);
-            button9.Name = "button9";
-            button9.Size = new Size(59, 60);
-            button9.TabIndex = 8;
-            button9.Text = "button9";
-            button9.UseVisualStyleBackColor = true;
+            NegateButton.BackColor = SystemColors.GradientActiveCaption;
+            NegateButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            NegateButton.FlatStyle = FlatStyle.Flat;
+            NegateButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            NegateButton.ForeColor = Color.FromArgb(64, 64, 64);
+            NegateButton.Location = new Point(277, 71);
+            NegateButton.Name = "NegateButton";
+            NegateButton.Size = new Size(59, 60);
+            NegateButton.TabIndex = 8;
+            NegateButton.Text = "±";
+            NegateButton.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // RootButton
             // 
-            button10.Location = new Point(277, 132);
-            button10.Name = "button10";
-            button10.Size = new Size(59, 60);
-            button10.TabIndex = 9;
-            button10.Text = "button10";
-            button10.UseVisualStyleBackColor = true;
+            RootButton.BackColor = SystemColors.GradientActiveCaption;
+            RootButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            RootButton.FlatStyle = FlatStyle.Flat;
+            RootButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            RootButton.ForeColor = Color.FromArgb(64, 64, 64);
+            RootButton.Location = new Point(277, 132);
+            RootButton.Name = "RootButton";
+            RootButton.Size = new Size(59, 60);
+            RootButton.TabIndex = 9;
+            RootButton.Text = "√";
+            RootButton.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // OneButton
             // 
-            button11.Location = new Point(33, 193);
-            button11.Name = "button11";
-            button11.Size = new Size(59, 60);
-            button11.TabIndex = 10;
-            button11.Text = "button11";
-            button11.UseVisualStyleBackColor = true;
+            OneButton.BackColor = SystemColors.Control;
+            OneButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            OneButton.FlatStyle = FlatStyle.Flat;
+            OneButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            OneButton.ForeColor = Color.FromArgb(64, 64, 64);
+            OneButton.Location = new Point(33, 193);
+            OneButton.Name = "OneButton";
+            OneButton.Size = new Size(59, 60);
+            OneButton.TabIndex = 10;
+            OneButton.Text = "1";
+            OneButton.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // TwoButton
             // 
-            button12.Location = new Point(94, 193);
-            button12.Name = "button12";
-            button12.Size = new Size(59, 60);
-            button12.TabIndex = 11;
-            button12.Text = "button12";
-            button12.UseVisualStyleBackColor = true;
+            TwoButton.BackColor = SystemColors.Control;
+            TwoButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            TwoButton.FlatStyle = FlatStyle.Flat;
+            TwoButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TwoButton.ForeColor = Color.FromArgb(64, 64, 64);
+            TwoButton.Location = new Point(94, 193);
+            TwoButton.Name = "TwoButton";
+            TwoButton.Size = new Size(59, 60);
+            TwoButton.TabIndex = 11;
+            TwoButton.Text = "2";
+            TwoButton.UseVisualStyleBackColor = false;
             // 
-            // button13
+            // ThreeButton
             // 
-            button13.Location = new Point(155, 193);
-            button13.Name = "button13";
-            button13.Size = new Size(59, 60);
-            button13.TabIndex = 12;
-            button13.Text = "button13";
-            button13.UseVisualStyleBackColor = true;
+            ThreeButton.BackColor = SystemColors.Control;
+            ThreeButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            ThreeButton.FlatStyle = FlatStyle.Flat;
+            ThreeButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ThreeButton.ForeColor = Color.FromArgb(64, 64, 64);
+            ThreeButton.Location = new Point(155, 193);
+            ThreeButton.Name = "ThreeButton";
+            ThreeButton.Size = new Size(59, 60);
+            ThreeButton.TabIndex = 12;
+            ThreeButton.Text = "3";
+            ThreeButton.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // MinusButton
             // 
-            button14.Location = new Point(216, 193);
-            button14.Name = "button14";
-            button14.Size = new Size(59, 60);
-            button14.TabIndex = 13;
-            button14.Text = "button14";
-            button14.UseVisualStyleBackColor = true;
+            MinusButton.BackColor = SystemColors.ActiveCaption;
+            MinusButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            MinusButton.FlatStyle = FlatStyle.Flat;
+            MinusButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            MinusButton.ForeColor = Color.FromArgb(64, 64, 64);
+            MinusButton.Location = new Point(216, 193);
+            MinusButton.Name = "MinusButton";
+            MinusButton.Size = new Size(59, 60);
+            MinusButton.TabIndex = 13;
+            MinusButton.Text = "-";
+            MinusButton.UseVisualStyleBackColor = false;
             // 
-            // button15
+            // PercentButton
             // 
-            button15.Location = new Point(277, 193);
-            button15.Name = "button15";
-            button15.Size = new Size(59, 60);
-            button15.TabIndex = 14;
-            button15.Text = "button15";
-            button15.UseVisualStyleBackColor = true;
+            PercentButton.BackColor = SystemColors.ActiveCaption;
+            PercentButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            PercentButton.FlatStyle = FlatStyle.Flat;
+            PercentButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            PercentButton.ForeColor = Color.FromArgb(64, 64, 64);
+            PercentButton.Location = new Point(277, 193);
+            PercentButton.Name = "PercentButton";
+            PercentButton.Size = new Size(59, 60);
+            PercentButton.TabIndex = 14;
+            PercentButton.Text = "%";
+            PercentButton.UseVisualStyleBackColor = false;
             // 
-            // button16
+            // ZeroButton
             // 
-            button16.Location = new Point(33, 254);
-            button16.Name = "button16";
-            button16.Size = new Size(59, 60);
-            button16.TabIndex = 15;
-            button16.Text = "button16";
-            button16.UseVisualStyleBackColor = true;
+            ZeroButton.BackColor = SystemColors.Control;
+            ZeroButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            ZeroButton.FlatStyle = FlatStyle.Flat;
+            ZeroButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ZeroButton.ForeColor = Color.FromArgb(64, 64, 64);
+            ZeroButton.Location = new Point(33, 254);
+            ZeroButton.Name = "ZeroButton";
+            ZeroButton.Size = new Size(59, 60);
+            ZeroButton.TabIndex = 15;
+            ZeroButton.Text = "0";
+            ZeroButton.UseVisualStyleBackColor = false;
             // 
-            // button17
+            // PointButton
             // 
-            button17.Location = new Point(94, 254);
-            button17.Name = "button17";
-            button17.Size = new Size(59, 60);
-            button17.TabIndex = 16;
-            button17.Text = "button17";
-            button17.UseVisualStyleBackColor = true;
+            PointButton.BackColor = SystemColors.Control;
+            PointButton.FlatAppearance.BorderColor = SystemColors.ControlLight;
+            PointButton.FlatStyle = FlatStyle.Flat;
+            PointButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            PointButton.ForeColor = Color.FromArgb(64, 64, 64);
+            PointButton.Location = new Point(94, 254);
+            PointButton.Name = "PointButton";
+            PointButton.Size = new Size(59, 60);
+            PointButton.TabIndex = 16;
+            PointButton.Text = ".";
+            PointButton.UseVisualStyleBackColor = false;
             // 
-            // button18
+            // ClearButton
             // 
-            button18.Location = new Point(155, 254);
-            button18.Name = "button18";
-            button18.Size = new Size(59, 60);
-            button18.TabIndex = 17;
-            button18.Text = "button18";
-            button18.UseVisualStyleBackColor = true;
+            ClearButton.BackColor = Color.LightCoral;
+            ClearButton.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            ClearButton.FlatStyle = FlatStyle.Flat;
+            ClearButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ClearButton.ForeColor = Color.FromArgb(64, 64, 64);
+            ClearButton.Location = new Point(155, 254);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(59, 60);
+            ClearButton.TabIndex = 17;
+            ClearButton.Text = "C";
+            ClearButton.UseVisualStyleBackColor = false;
             // 
-            // button19
+            // PlusButton
             // 
-            button19.Location = new Point(216, 254);
-            button19.Name = "button19";
-            button19.Size = new Size(59, 60);
-            button19.TabIndex = 18;
-            button19.Text = "button19";
-            button19.UseVisualStyleBackColor = true;
+            PlusButton.BackColor = SystemColors.ActiveCaption;
+            PlusButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            PlusButton.FlatStyle = FlatStyle.Flat;
+            PlusButton.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            PlusButton.ForeColor = Color.FromArgb(64, 64, 64);
+            PlusButton.Location = new Point(216, 254);
+            PlusButton.Name = "PlusButton";
+            PlusButton.Size = new Size(59, 60);
+            PlusButton.TabIndex = 18;
+            PlusButton.Text = "+";
+            PlusButton.UseVisualStyleBackColor = false;
             // 
-            // button20
+            // EqualsButton
             // 
-            button20.Location = new Point(277, 254);
-            button20.Name = "button20";
-            button20.Size = new Size(59, 60);
-            button20.TabIndex = 19;
-            button20.Text = "button20";
-            button20.UseVisualStyleBackColor = true;
+            EqualsButton.BackColor = SystemColors.ActiveCaption;
+            EqualsButton.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 255);
+            EqualsButton.FlatStyle = FlatStyle.Flat;
+            EqualsButton.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            EqualsButton.ForeColor = Color.White;
+            EqualsButton.Location = new Point(277, 254);
+            EqualsButton.Name = "EqualsButton";
+            EqualsButton.Size = new Size(59, 60);
+            EqualsButton.TabIndex = 19;
+            EqualsButton.Text = "=";
+            EqualsButton.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // ExpressionTextBox
             // 
-            textBox1.Location = new Point(33, 38);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(303, 27);
-            textBox1.TabIndex = 20;
+            ExpressionTextBox.BackColor = SystemColors.Control;
+            ExpressionTextBox.Location = new Point(33, 38);
+            ExpressionTextBox.Name = "ExpressionTextBox";
+            ExpressionTextBox.Size = new Size(303, 27);
+            ExpressionTextBox.TabIndex = 20;
             // 
-            // label1
+            // LastExpressionLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(286, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 21;
-            label1.Text = "label1";
+            LastExpressionLabel.Font = new Font("Calibri Light", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            LastExpressionLabel.ForeColor = Color.FromArgb(64, 64, 64);
+            LastExpressionLabel.Location = new Point(33, 9);
+            LastExpressionLabel.Name = "LastExpressionLabel";
+            LastExpressionLabel.Size = new Size(303, 26);
+            LastExpressionLabel.TabIndex = 21;
+            LastExpressionLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(371, 339);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(button20);
-            Controls.Add(button19);
-            Controls.Add(button18);
-            Controls.Add(button17);
-            Controls.Add(button16);
-            Controls.Add(button15);
-            Controls.Add(button14);
-            Controls.Add(button13);
-            Controls.Add(button12);
-            Controls.Add(button11);
-            Controls.Add(button10);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(LastExpressionLabel);
+            Controls.Add(ExpressionTextBox);
+            Controls.Add(EqualsButton);
+            Controls.Add(PlusButton);
+            Controls.Add(ClearButton);
+            Controls.Add(PointButton);
+            Controls.Add(ZeroButton);
+            Controls.Add(PercentButton);
+            Controls.Add(MinusButton);
+            Controls.Add(ThreeButton);
+            Controls.Add(TwoButton);
+            Controls.Add(OneButton);
+            Controls.Add(RootButton);
+            Controls.Add(NegateButton);
+            Controls.Add(MultiplyButton);
+            Controls.Add(SixButton);
+            Controls.Add(FiveButton);
+            Controls.Add(FourButton);
+            Controls.Add(DivideButton);
+            Controls.Add(NineButton);
+            Controls.Add(EightButton);
+            Controls.Add(SevenButton);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Calculator";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
-        private Button button13;
-        private Button button14;
-        private Button button15;
-        private Button button16;
-        private Button button17;
-        private Button button18;
-        private Button button19;
-        private Button button20;
-        private TextBox textBox1;
-        private Label label1;
+        private Button SevenButton;
+        private Button EightButton;
+        private Button NineButton;
+        private Button DivideButton;
+        private Button FourButton;
+        private Button FiveButton;
+        private Button SixButton;
+        private Button MultiplyButton;
+        private Button NegateButton;
+        private Button RootButton;
+        private Button OneButton;
+        private Button TwoButton;
+        private Button ThreeButton;
+        private Button MinusButton;
+        private Button PercentButton;
+        private Button ZeroButton;
+        private Button PointButton;
+        private Button ClearButton;
+        private Button PlusButton;
+        private Button EqualsButton;
+        private TextBox ExpressionTextBox;
+        private Label LastExpressionLabel;
     }
 }
