@@ -1,7 +1,7 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections.Specialized;
+using System.Linq.Expressions;
 
 namespace FormsCalc;
-
 
 public enum BufferStatus
 {
@@ -12,39 +12,26 @@ public enum BufferStatus
 
 public partial class Form1 : Form
 {
-    private List<double> buffer = new List<double>(2);
-    private bool isFinalExpression = false;
+    private List<double> numberBuffer = new List<double>(2);
     private Func<double, double, double> BinaryOperation = null;
+
+    bool isAddMode = true;
+    bool isFinalExpression = false;
 
     public Form1()
     {
         InitializeComponent();
     }
 
-    private void ClearTextBox(TextBox textBox) => textBox.Text = string.Empty;
-
-    private void ClearLabel(Label label) => label.Text = string.Empty;
-
-    private void SetLastExpressionLabel(Button expressionButton)
-    {
-        string symbol = (buffer.Count == (int)BufferStatus.Full) ? this.EqualsButton.Text : expressionButton.Text;
-        this.LastExpressionLabel.Text += this.ExpressionTextBox.Text + symbol;
-    }
 
     private void AddNumberInBuffer(string numberStr)
     {
-        if (double.TryParse(this.ExpressionTextBox.Text, out double num) == false)
+        if (double.TryParse(numberStr, out double number) == false)
             throw new Exception();
 
-        buffer.Add(num);
+        this.numberBuffer.Add(number);
     }
 
-    private void ShowFinalExpression(Func<double, double, double> BinaryOperation)
-    {
-        this.ExpressionTextBox.Text = $"{BinaryOperation.Invoke(buffer[0], buffer[1])}";
-        isFinalExpression = true;
-        buffer.Clear();
-    }
 
     private double Sum(double num1, double num2) => num1 + num2;
 
@@ -52,7 +39,13 @@ public partial class Form1 : Form
 
     private double Multiply(double num1, double num2) => num1 * num2;
 
-    private double Divide(double num1, double num2) => num1 / num2;
+    private double Divide(double num1, double num2)
+    {
+        if (num2 == 0)
+            throw new DivideByZeroException();
+
+        return num1 / num2;
+    }
 
     private void SetExpressionLogic(Button expressionButton)
     {
@@ -70,7 +63,6 @@ public partial class Form1 : Form
             case "÷":
                 this.BinaryOperation = Divide;
                 break;
-
         }
     }
 
@@ -78,12 +70,14 @@ public partial class Form1 : Form
     {
         if (sender is Button currentButton)
         {
-            if (this.isFinalExpression)
+            if (isAddMode == false)
             {
-                ClearTextBox(this.ExpressionTextBox);
-                ClearLabel(this.LastExpressionLabel);
-                this.isFinalExpression = false;
+                this.ExpressionTextBox.Text = string.Empty;
+                isAddMode = true;
             }
+
+            if (isFinalExpression)
+                ClearButton_Click(sender, e);
 
             this.ExpressionTextBox.Text += currentButton.Text;
         }
@@ -91,11 +85,13 @@ public partial class Form1 : Form
 
     private void ClearButton_Click(object sender, EventArgs e)
     {
-        if (sender is Button currentNumberButton)
+        if (sender is Button currentExpressionButton)
         {
-            ClearTextBox(this.ExpressionTextBox);
-            ClearLabel(this.LastExpressionLabel);
-            buffer.Clear();
+            this.ExpressionTextBox.Text = string.Empty;
+            this.LastExpressionLabel.Text = string.Empty;
+            this.BinaryOperation = null;
+            this.isAddMode = true;
+            this.numberBuffer.Clear();
         }
     }
 
@@ -103,41 +99,46 @@ public partial class Form1 : Form
     {
         if (sender is Button currentExpressionButton)
         {
-
-            isFinalExpression = false;
-
-            if (buffer.Count == (int)BufferStatus.Empty)
-                ClearLabel(this.LastExpressionLabel);
-
+            this.isFinalExpression = false;
 
             AddNumberInBuffer(this.ExpressionTextBox.Text);
 
-            if (buffer.Count == (int)BufferStatus.Processing)
+            if (this.numberBuffer.Count == (int)BufferStatus.Processing)
+                SetExpressionLogic(currentExpressionButton);
+
+            if (numberBuffer.Count == (int)BufferStatus.Full)
             {
+                this.ExpressionTextBox.Text = $"{this.BinaryOperation(numberBuffer[0], numberBuffer[1])}";
+                this.numberBuffer.Clear();
+
+                AddNumberInBuffer(this.ExpressionTextBox.Text);
                 SetExpressionLogic(currentExpressionButton);
             }
 
-            SetLastExpressionLabel(currentExpressionButton);
-            ClearTextBox(this.ExpressionTextBox);
-
-            if (buffer.Count == (int)BufferStatus.Full)
-                ShowFinalExpression(this.BinaryOperation);
+            this.LastExpressionLabel.Text = $"{this.ExpressionTextBox.Text}{currentExpressionButton.Text}";
+            this.isAddMode = false;
         }
     }
 
     private void EqualsButton_Click(object sender, EventArgs e)
     {
-        if (this.ExpressionTextBox.Text == string.Empty && this.LastExpressionLabel.Text != string.Empty)
+
+        if (sender is Button currentButton)
         {
-            this.ExpressionTextBox.Text = $"{buffer[0]}";
-            ClearLabel(LastExpressionLabel);
-            buffer.Clear();
+            if (this.numberBuffer.Count == (int)BufferStatus.Processing)
+            {
+                this.LastExpressionLabel.Text += this.ExpressionTextBox.Text + currentButton.Text;
+                AddNumberInBuffer(this.ExpressionTextBox.Text);
+                this.ExpressionTextBox.Text = $"{numberBuffer[0] + numberBuffer[1]}";
+                this.isAddMode = false;
+                this.numberBuffer.Clear();
+                return;
+            }
+
+            this.LastExpressionLabel.Text = this.ExpressionTextBox.Text + currentButton.Text;
+            this.isAddMode = false;
+            this.isFinalExpression = true;
         }
 
-        else if (this.ExpressionTextBox.Text != string.Empty && this.LastExpressionLabel.Text != string.Empty &&
-            isFinalExpression == false)
-            ExpressionButton_Click(sender, EventArgs.Empty);
-
-        this.isFinalExpression = true;
     }
 }

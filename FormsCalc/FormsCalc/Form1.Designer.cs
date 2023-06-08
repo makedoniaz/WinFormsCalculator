@@ -107,6 +107,7 @@
             DivideButton.TabIndex = 3;
             DivideButton.Text = "÷";
             DivideButton.UseVisualStyleBackColor = false;
+            DivideButton.Click += ExpressionButton_Click;
             // 
             // FourButton
             // 
