@@ -3,13 +3,6 @@ using System.Linq.Expressions;
 
 namespace FormsCalc;
 
-public enum BufferStatus
-{
-    Empty = 0,
-    Processing = 1,
-    Full = 2,
-}
-
 public partial class Form1 : Form
 {
     private List<double> numberBuffer = new List<double>(2);
