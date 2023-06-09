@@ -27,7 +27,7 @@ public partial class Form1 : Form
     private void AddNumberInBuffer(string numberStr)
     {
         if (double.TryParse(numberStr, out double number) == false)
-            throw new Exception();
+            throw new FormatException("Invalid number!");
 
         this.numberBuffer.Add(number);
     }
@@ -70,13 +70,13 @@ public partial class Form1 : Form
     {
         if (sender is Button currentButton)
         {
-            if (isAddMode == false)
+            if (this.isAddMode == false)
             {
                 this.ExpressionTextBox.Text = string.Empty;
-                isAddMode = true;
+                this.isAddMode = true;
             }
 
-            if (isFinalExpression)
+            if (this.isFinalExpression)
                 ClearButton_Click(sender, e);
 
             this.ExpressionTextBox.Text += currentButton.Text;
@@ -85,7 +85,7 @@ public partial class Form1 : Form
 
     private void ClearButton_Click(object sender, EventArgs e)
     {
-        if (sender is Button currentExpressionButton)
+        if (sender is Button)
         {
             this.ExpressionTextBox.Text = string.Empty;
             this.LastExpressionLabel.Text = string.Empty;
@@ -97,25 +97,25 @@ public partial class Form1 : Form
 
     private void ExpressionButton_Click(object sender, EventArgs e)
     {
-        if (sender is Button currentExpressionButton)
+        if (sender is Button currentButton)
         {
             this.isFinalExpression = false;
 
             AddNumberInBuffer(this.ExpressionTextBox.Text);
 
             if (this.numberBuffer.Count == (int)BufferStatus.Processing)
-                SetExpressionLogic(currentExpressionButton);
+                SetExpressionLogic(currentButton);
 
-            if (numberBuffer.Count == (int)BufferStatus.Full)
+            if (this.numberBuffer.Count == (int)BufferStatus.Full)
             {
-                this.ExpressionTextBox.Text = $"{this.BinaryOperation(numberBuffer[0], numberBuffer[1])}";
+                this.ExpressionTextBox.Text = $"{this.BinaryOperation.Invoke(numberBuffer[0], numberBuffer[1])}";
                 this.numberBuffer.Clear();
 
                 AddNumberInBuffer(this.ExpressionTextBox.Text);
-                SetExpressionLogic(currentExpressionButton);
+                SetExpressionLogic(currentButton);
             }
 
-            this.LastExpressionLabel.Text = $"{this.ExpressionTextBox.Text}{currentExpressionButton.Text}";
+            this.LastExpressionLabel.Text = $"{this.ExpressionTextBox.Text}{currentButton.Text}";
             this.isAddMode = false;
         }
     }
