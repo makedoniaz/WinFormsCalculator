@@ -1,5 +1,5 @@
-﻿using System.Collections.Specialized;
-using System.Linq.Expressions;
+﻿using LogClass;
+using System.Collections.Specialized;
 
 namespace FormsCalc;
 
@@ -10,6 +10,8 @@ public partial class Form1 : Form
 
     bool isAddMode = true;
     bool isFinalExpression = false;
+
+    private List<Log> logs = new List<Log>();
 
     public Form1()
     {
@@ -67,6 +69,7 @@ public partial class Form1 : Form
             {
                 this.ExpressionTextBox.Text = string.Empty;
                 this.isAddMode = true;
+                this.isFinalExpression = false;
             }
 
             if (this.isFinalExpression)
@@ -93,6 +96,7 @@ public partial class Form1 : Form
         if (sender is Button currentButton)
         {
             this.isFinalExpression = false;
+            string expressionLog = string.Empty;
 
             AddNumberInBuffer(this.ExpressionTextBox.Text);
 
@@ -102,8 +106,13 @@ public partial class Form1 : Form
             if (this.numberBuffer.Count == (int)BufferStatus.Full)
             {
                 this.ExpressionTextBox.Text = $"{this.BinaryOperation.Invoke(numberBuffer[0], numberBuffer[1])}";
-                this.numberBuffer.Clear();
 
+                expressionLog = this.LastExpressionLabel.Text + numberBuffer[1] +
+                    this.EqualsButton.Text + this.ExpressionTextBox.Text;
+
+                this.logs.Add(new Log(expressionLog));
+
+                this.numberBuffer.Clear();
                 AddNumberInBuffer(this.ExpressionTextBox.Text);
                 SetExpressionLogic(currentButton);
             }
@@ -118,17 +127,27 @@ public partial class Form1 : Form
 
         if (sender is Button currentButton)
         {
+            string expressionLog = string.Empty;
+
             if (this.numberBuffer.Count == (int)BufferStatus.Processing)
             {
                 this.LastExpressionLabel.Text += this.ExpressionTextBox.Text + currentButton.Text;
                 AddNumberInBuffer(this.ExpressionTextBox.Text);
                 this.ExpressionTextBox.Text = $"{numberBuffer[0] + numberBuffer[1]}";
+
+                expressionLog = this.LastExpressionLabel.Text + this.ExpressionTextBox.Text;
+                this.logs.Add(new Log(expressionLog));
+
                 this.isAddMode = false;
                 this.numberBuffer.Clear();
                 return;
             }
 
             this.LastExpressionLabel.Text = this.ExpressionTextBox.Text + currentButton.Text;
+            
+            expressionLog = this.ExpressionTextBox.Text + currentButton.Text + this.ExpressionTextBox.Text;
+            this.logs.Add(new Log(expressionLog));
+
             this.isAddMode = false;
             this.isFinalExpression = true;
         }
