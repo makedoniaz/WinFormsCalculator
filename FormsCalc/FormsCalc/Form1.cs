@@ -1,5 +1,6 @@
 ﻿using LogClass;
 using System.Collections.Specialized;
+using System.Linq.Expressions;
 
 namespace FormsCalc;
 
@@ -61,6 +62,15 @@ public partial class Form1 : Form
         }
     }
 
+    private void AddLog(string expression, DateTime time)
+    {
+        Log newLog = new Log(expression, time);
+        this.logs.Add(newLog);
+        this.HistoryListBox.Items.Add(newLog);
+
+    }
+
+
     private void NumberButton_Click(object sender, EventArgs e)
     {
         if (sender is Button currentButton)
@@ -109,8 +119,7 @@ public partial class Form1 : Form
 
                 expressionLog = this.LastExpressionLabel.Text + numberBuffer[1] +
                     this.EqualsButton.Text + this.ExpressionTextBox.Text;
-
-                this.logs.Add(new Log(expressionLog));
+                AddLog(expressionLog, DateTime.Now);
 
                 this.numberBuffer.Clear();
                 AddNumberInBuffer(this.ExpressionTextBox.Text);
@@ -136,7 +145,7 @@ public partial class Form1 : Form
                 this.ExpressionTextBox.Text = $"{numberBuffer[0] + numberBuffer[1]}";
 
                 expressionLog = this.LastExpressionLabel.Text + this.ExpressionTextBox.Text;
-                this.logs.Add(new Log(expressionLog));
+                AddLog(expressionLog, DateTime.Now);
 
                 this.isAddMode = false;
                 this.numberBuffer.Clear();
@@ -144,9 +153,9 @@ public partial class Form1 : Form
             }
 
             this.LastExpressionLabel.Text = this.ExpressionTextBox.Text + currentButton.Text;
-            
+
             expressionLog = this.ExpressionTextBox.Text + currentButton.Text + this.ExpressionTextBox.Text;
-            this.logs.Add(new Log(expressionLog));
+            AddLog(expressionLog, DateTime.Now);
 
             this.isAddMode = false;
             this.isFinalExpression = true;

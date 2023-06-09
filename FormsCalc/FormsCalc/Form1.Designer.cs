@@ -47,6 +47,7 @@
             EqualsButton = new Button();
             ExpressionTextBox = new TextBox();
             LastExpressionLabel = new Label();
+            HistoryListBox = new ListBox();
             SuspendLayout();
             // 
             // SevenButton
@@ -323,12 +324,23 @@
             LastExpressionLabel.TabIndex = 21;
             LastExpressionLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // HistoryListBox
+            // 
+            HistoryListBox.BackColor = SystemColors.Control;
+            HistoryListBox.FormattingEnabled = true;
+            HistoryListBox.ItemHeight = 20;
+            HistoryListBox.Location = new Point(360, 30);
+            HistoryListBox.Name = "HistoryListBox";
+            HistoryListBox.Size = new Size(280, 284);
+            HistoryListBox.TabIndex = 22;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(371, 339);
+            ClientSize = new Size(661, 339);
+            Controls.Add(HistoryListBox);
             Controls.Add(LastExpressionLabel);
             Controls.Add(ExpressionTextBox);
             Controls.Add(EqualsButton);
@@ -375,5 +387,6 @@
         private Button EqualsButton;
         private TextBox ExpressionTextBox;
         private Label LastExpressionLabel;
+        private ListBox HistoryListBox;
     }
 }
