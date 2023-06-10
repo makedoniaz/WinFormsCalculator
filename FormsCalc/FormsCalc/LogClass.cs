@@ -16,14 +16,13 @@ public class Log
     
     }
 
-
     public DateTime ExpressionTime { get; set; }
-
-    public override string ToString() => ExpressionTime.ToString() + "\t" + expression;
 
     public Log(string expression, DateTime expressionTime)
     {
         Expression = expression;
         ExpressionTime = expressionTime;
     }
+
+    public override string ToString() => ExpressionTime.ToShortDateString() + "  " + expression;
 }

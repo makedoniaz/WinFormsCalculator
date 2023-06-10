@@ -1,6 +1,7 @@
 ﻿using LogClass;
-using System.Collections.Specialized;
+using LogsClass;
 using System.Linq.Expressions;
+using System.Text.Json;
 
 namespace FormsCalc;
 
@@ -12,7 +13,8 @@ public partial class Form1 : Form
     bool isAddMode = true;
     bool isFinalExpression = false;
 
-    private List<Log> logs = new List<Log>();
+    private Logs logs = new Logs();
+    private string logsPath = "logs.txt";
 
     public Form1()
     {
@@ -27,7 +29,6 @@ public partial class Form1 : Form
 
         this.numberBuffer.Add(number);
     }
-
 
     private double Sum(double num1, double num2) => num1 + num2;
 
@@ -62,12 +63,12 @@ public partial class Form1 : Form
         }
     }
 
-    private void AddLog(string expression, DateTime time)
+    private void CreateLog(string message, DateTime time)
     {
-        Log newLog = new Log(expression, time);
-        this.logs.Add(newLog);
-        this.HistoryListBox.Items.Add(newLog);
+        Log newLog = new Log(message, time);
 
+        this.HistoryListBox.Items.Add(newLog);
+        logs.AddLogInFile(newLog);
     }
 
 
@@ -106,7 +107,7 @@ public partial class Form1 : Form
         if (sender is Button currentButton)
         {
             this.isFinalExpression = false;
-            string expressionLog = string.Empty;
+            string logExpression = string.Empty;
 
             AddNumberInBuffer(this.ExpressionTextBox.Text);
 
@@ -117,9 +118,9 @@ public partial class Form1 : Form
             {
                 this.ExpressionTextBox.Text = $"{this.BinaryOperation.Invoke(numberBuffer[0], numberBuffer[1])}";
 
-                expressionLog = this.LastExpressionLabel.Text + numberBuffer[1] +
+                logExpression = this.LastExpressionLabel.Text + numberBuffer[1] +
                     this.EqualsButton.Text + this.ExpressionTextBox.Text;
-                AddLog(expressionLog, DateTime.Now);
+                CreateLog(logExpression, DateTime.Now);
 
                 this.numberBuffer.Clear();
                 AddNumberInBuffer(this.ExpressionTextBox.Text);
@@ -136,7 +137,7 @@ public partial class Form1 : Form
 
         if (sender is Button currentButton)
         {
-            string expressionLog = string.Empty;
+            string logExpression = string.Empty;
 
             if (this.numberBuffer.Count == (int)BufferStatus.Processing)
             {
@@ -144,8 +145,8 @@ public partial class Form1 : Form
                 AddNumberInBuffer(this.ExpressionTextBox.Text);
                 this.ExpressionTextBox.Text = $"{numberBuffer[0] + numberBuffer[1]}";
 
-                expressionLog = this.LastExpressionLabel.Text + this.ExpressionTextBox.Text;
-                AddLog(expressionLog, DateTime.Now);
+                logExpression = this.LastExpressionLabel.Text + this.ExpressionTextBox.Text;
+                CreateLog(logExpression, DateTime.Now);
 
                 this.isAddMode = false;
                 this.numberBuffer.Clear();
@@ -154,8 +155,8 @@ public partial class Form1 : Form
 
             this.LastExpressionLabel.Text = this.ExpressionTextBox.Text + currentButton.Text;
 
-            expressionLog = this.ExpressionTextBox.Text + currentButton.Text + this.ExpressionTextBox.Text;
-            AddLog(expressionLog, DateTime.Now);
+            logExpression = this.ExpressionTextBox.Text + currentButton.Text + this.ExpressionTextBox.Text;
+            CreateLog(logExpression, DateTime.Now);
 
             this.isAddMode = false;
             this.isFinalExpression = true;
