@@ -1,5 +1,6 @@
 ﻿using LogClass;
 using LogsClass;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq.Expressions;
 using System.Text.Json;
 
@@ -14,11 +15,14 @@ public partial class Form1 : Form
     bool isFinalExpression = false;
 
     private Logs logs = new Logs();
-    private string logsPath = "logs.txt";
 
     public Form1()
     {
         InitializeComponent();
+        this.ExpressionTextBox.Text = "0";
+        this.isAddMode = false;
+        if (File.Exists(logs.LogsPath))
+            DonwloadLogs();
     }
 
 
@@ -71,6 +75,15 @@ public partial class Form1 : Form
         logs.AddLogInFile(newLog);
     }
 
+    private void DonwloadLogs()
+    {
+        string json = File.ReadAllText(this.logs.LogsPath);
+
+        this.logs.ExpressionLogs = JsonSerializer.Deserialize<List<Log>>(json);
+
+        foreach(var log in this.logs.ExpressionLogs)
+            this.HistoryListBox.Items.Add(log);
+    }
 
     private void NumberButton_Click(object sender, EventArgs e)
     {
@@ -94,10 +107,10 @@ public partial class Form1 : Form
     {
         if (sender is Button)
         {
-            this.ExpressionTextBox.Text = string.Empty;
+            this.ExpressionTextBox.Text = "0";
             this.LastExpressionLabel.Text = string.Empty;
             this.BinaryOperation = null;
-            this.isAddMode = true;
+            this.isAddMode = false;
             this.numberBuffer.Clear();
         }
     }
